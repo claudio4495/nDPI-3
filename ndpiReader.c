@@ -31,7 +31,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
-#include "myhash.h"
+#include "myhash.h"   // header for hash table
 #ifdef WIN32
 #include <winsock2.h> /* winsock.h is included automatically */
 #include <process.h>
@@ -2658,13 +2658,13 @@ static void printFlowsStats() {
       }
     }
 
-
+//option add to argoument -v
     if(verbose == 4){
       HashTable* table;
       table = create_table(CAPACITY);
       if (table == NULL)
 	printf("errore tabella\n");
-      
+      //iterate the flows
       for(i = 0; i< num_flows; i++){
 	if(all_flows[i].flow->ssh_tls.server_info[0] != '0'){
 	  ht_insert(table,all_flows[i].flow->ssh_tls.server_info);
@@ -2674,7 +2674,7 @@ static void printFlowsStats() {
 	  ht_insert(table,all_flows[i].flow->host_server_name);
 	}
       }
-   
+   //order the table by occurrences
       ht_order(table);
     
       print_table(table);
