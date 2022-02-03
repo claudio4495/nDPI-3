@@ -2666,10 +2666,6 @@ static void printFlowsStats() {
 	printf("errore tabella\n");
       
       for(i = 0; i< num_flows; i++){
-	if(all_flows[i].flow->ssh_tls.ja3_client[0] != '0'){
-	  ht_insert(table,all_flows[i].flow->ssh_tls.client_hassh);
-	}
-
 	if(all_flows[i].flow->ssh_tls.server_info[0] != '0'){
 	  ht_insert(table,all_flows[i].flow->ssh_tls.server_info);
 	}
