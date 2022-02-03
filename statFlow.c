@@ -100,8 +100,8 @@ void ht_insert(HashTable* table, char* key){
       		while(i<=table->size){
       			if(table->items[i]!=NULL){
       				if(table->items[i]->value<min)
-				free_item(table->items[j]);
-				table->items[j] = NULL;
+				free_item(table->items[i]);
+				table->items[i] = NULL;
 				j++;
 				if (j>=10)
 					break;
@@ -123,8 +123,8 @@ void ht_insert(HashTable* table, char* key){
       		while(i<=table->size){
       			if(table->items[i]!=NULL){
       				if(table->items[i]->value<min)
-				free_item(table->items[j]);
-				table->items[j] = NULL;
+				free_item(table->items[i]);
+				table->items[i] = NULL;
 				j++;
 				if (j>=10)
 					break;
