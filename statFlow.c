@@ -89,7 +89,7 @@ void ht_insert(HashTable* table, char* key){
       		table->items[index]->value++;
       	}
       	else{
-      		while(table->items[index] != NULL){
+      		while(table->items[index] != NULL){         //wrap around the table
       			++index;
       			index %= table->size;
       		}
@@ -97,7 +97,7 @@ void ht_insert(HashTable* table, char* key){
     	if (table->count==table->size){
       		int j=0;
       		int i=0;
-      		while(i<=table->size){
+      		while(i<=table->size){                     //remove elements with less occurrences
       			if(table->items[i]!=NULL){
       				if(table->items[i]->value<min)
 				free_item(table->items[i]);
@@ -120,7 +120,7 @@ void ht_insert(HashTable* table, char* key){
   	if (table->count==table->size){
       		int j=0;
       		int i=0;
-      		while(i<=table->size){
+      		while(i<=table->size){               //remove elements with less occurrences
       			if(table->items[i]!=NULL){
       				if(table->items[i]->value<min)
 				free_item(table->items[i]);
